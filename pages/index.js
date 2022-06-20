@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={styles.content}>
       <h1 className={styles.title}>
-        Technical Task with <a href="https://nextjs.org">Next.js!</a>
+        Task with <a href="https://nextjs.org">Next.js!</a>
       </h1>
 
       <div className={styles.grid}>
@@ -14,7 +14,7 @@ export default function Home() {
           <h2>Post form</h2>
           <p>
             * add top menu with next Layout
-            <br />* creacte a form with MUI and handle form with react context{" "}
+            <br />* creacte a form with MUI and handle form with react hook form{" "}
             <br />* then submit the form and post data to{" "}
             <span className={styles.link}>
               https://jsonplaceholder.typicode.com/posts
