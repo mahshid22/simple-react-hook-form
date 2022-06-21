@@ -27,8 +27,6 @@ export default function NewPost() {
   const { handleSubmit, control } = useForm(defaultValues);
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(result);
     if (
       JSON.stringify(data) !== JSON.stringify(result) &&
       Object.keys(removeEmpty(data)).length
@@ -37,40 +35,6 @@ export default function NewPost() {
       setShowSubmitResult(false);
       axios
         .post("https://jsonplaceholder.typicode.com/posts", data, {
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        })
-        .then((result) => {
-          delete result.data.id;
-          let res = { ...result.data };
-          setShowSubmitResult(true);
-          setLoading(false);
-          setAlertMsg("you're message was submited successfully");
-          setAlertMsgType("success");
-          if (Object.keys(removeEmpty(result)).length) setResult(res);
-        })
-        .catch(() => {
-          setShowSubmitResult(true);
-          setLoading(false);
-          setAlertMsg("you're message was NOT submited.");
-          setAlertMsgType("error");
-        });
-    } else {
-      setAlertMsg(" Duplicate or Empty information");
-      setAlertMsgType("error");
-      setShowSubmitResult(true);
-    }
-  };
-  const handleSubmit2 = (form, result) => {
-    if (
-      JSON.stringify(form) !== JSON.stringify(result) &&
-      Object.keys(removeEmpty(form)).length
-    ) {
-      setLoading(true);
-      setShowSubmitResult(false);
-      axios
-        .post("https://jsonplaceholder.typicode.com/posts", form, {
           headers: {
             "Content-type": "application/json; charset=UTF-8",
           },
